@@ -27,8 +27,9 @@ src/
 └── stack/
     ├── array/
     │   └── stack.c   # array implementation
-    └── list/
-        └── stack.c   # linked list implementation
+    ├── list/
+    │    └── stack.c  # linked list implementation
+    └── java/         # java implementation
 include/
 └── stack.h           # included header file with function prototypes & documentation
 ```
