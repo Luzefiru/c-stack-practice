@@ -16,6 +16,19 @@ You'll need to run `make start` in a Bash instance or use [GNUWin](https://gnuwi
 
 - add makefile scripts and descriptions
 
+## Changing the Implementation
+
+We'll have to change the `IMPLEMENTATION` variable inside `Makefile` which points to the directory inside `/src/stack/$(IMPLEMENTATION)/stack.c`.
+
+```Makefile
+# the variable to change
+IMPLEMENTATION := array # or list
+
+# the compiled stack object code
+stack.o:
+	gcc -c ./src/stack/$(IMPLEMENTATION)/stack.c
+```
+
 # File Structure
 
 > File directory structure follows the [pitchfork](https://github.com/vector-of-bool/pitchfork) convention used in big C++ and C projects.
@@ -28,7 +41,7 @@ src/
     ├── array/
     │   └── stack.c   # array implementation
     ├── list/
-    │    └── stack.c  # linked list implementation
+    │   └── stack.c  # linked list implementation
     └── java/         # java implementation
 include/
 └── stack.h           # included header file with function prototypes & documentation
