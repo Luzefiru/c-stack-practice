@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX 6 // can change this, it's private
+#define MAX 10 // can change this, it's private
 
 /* Heap Helper functions & types */
 typedef struct node {
@@ -80,9 +80,9 @@ bool isEmpty(Stack s) {
 
 bool isFull(Stack s) {
   if (s->length == MAX) {
-    return false;
-  } else {
     return true;
+  } else {
+    return false;
   }
 }
 

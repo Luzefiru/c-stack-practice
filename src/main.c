@@ -30,6 +30,10 @@ int main(void) {
   printf("> new length of stack = %d\n", push(s, 'A'));
   puts("");
 
+  puts("displayStack(s)");
+  printf("> "); displayStack(s);
+  puts("");
+
   puts("top(s)");
   printf("> the element at the top of the stack = %c (integer value = %d)\n", top(s), top(s));
   puts("");
@@ -66,8 +70,35 @@ int main(void) {
   printf("> new length of stack = %d\n", push(s, 'X'));
   puts("");
 
+  puts("push(s, 'X')");
+  printf("> new length of stack = %d\n", push(s, 'X'));
+  puts("");
+
+  puts("push(s, 'X')");
+  printf("> new length of stack = %d\n", push(s, 'X'));
+  puts("");
+
   puts("displayStack(s)");
   printf("> "); displayStack(s);
+  puts("");
+
+  puts("isFull(s)");
+  isFull(s) ? puts("> true") : puts("> false");
+  puts("");
+
+  puts("Popping all elements...\n");
+  while (!isEmpty(s)) {
+    puts("pop(s)");
+    printf("> popped element = %c\n", pop(s));
+    puts("");
+  }
+  
+  puts("displayStack(s)");
+  printf("> "); displayStack(s);
+  puts("");
+
+  puts("isEmpty(s)");
+  isEmpty(s) ? puts("> true") : puts("> false");
   puts("");
   
   puts("\nPress Any Key to Continue...");  
