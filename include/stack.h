@@ -6,7 +6,7 @@
 typedef struct Stack * Stack; // a pointer to a struct Stack
 
 /**
- * @brief adds the specified element to the top of the stack and returns the new length of the stack.
+ * @brief adds the specified element to the top of the stack and returns the new length of the stack, returns the MAX length if the stack is full.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @param ch the element to add to the stack
@@ -15,7 +15,7 @@ typedef struct Stack * Stack; // a pointer to a struct Stack
 int push(Stack s, char elem);
 
 /**
- * @brief Removes the element at the top of the stack & returns it.
+ * @brief Removes the element at the top of the stack & returns it, otherwise (-1) if the stack is empty.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @return char
@@ -23,7 +23,7 @@ int push(Stack s, char elem);
 char pop(Stack s);
 
 /**
- * @brief Returns the element at the top of the stack.
+ * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @return char 
