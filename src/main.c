@@ -5,7 +5,8 @@ int main(void) {
   puts("\nTesting a function defined in /src/stack/$(IMPLEMENTATION)/stack.c, included via stack.h");
   debugPrint();
 
-
+  Stack pog = init();
+  pop(pog);
 
   puts("Press Any Key to Continue...");  
   getchar();    
