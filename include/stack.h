@@ -3,6 +3,8 @@
 #ifndef STACK_H
 #define STACK_H
 
+#define MAX 10 // the maximum number of elements in a stack
+
 typedef struct Stack * Stack; // a pointer to a struct Stack
 
 /**
