@@ -87,7 +87,7 @@ bool isFull(Stack s) {
 }
 
 Stack init(void) {
-  Stack newStack = malloc(sizeof(struct Stack));
+  Stack newStack = malloc(sizeof(Stack));
   newStack->VH = malloc(sizeof(VirtualHeap));
 
   // initialize VirtualHeap *
