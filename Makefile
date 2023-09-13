@@ -2,8 +2,8 @@
 # available options: array | list
 IMPLEMENTATION := array
 
-start: main
-	main.exe
+start:
+	make clean && make all && ./main.exe
 
 all: main
 
