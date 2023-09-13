@@ -132,7 +132,7 @@ void displayStack(Stack s) {
  */
 void debugPrint(void){
   printf("\e[0;32m");
-  puts("I'm in cursor-stack.c!\n");
+  puts("I'm in /src/stack/cursor/stack.c!\n");
   printf("\e[0m");
 }
 

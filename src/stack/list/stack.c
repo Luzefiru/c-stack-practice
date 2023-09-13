@@ -23,6 +23,6 @@ void displayStack(Stack s);
  */
 void debugPrint(void){
   printf("\e[0;31m");
-  puts("I'm in list-stack.c!\n");
+  puts("I'm in /src/stack/list/stack.c!\n");
   printf("\e[0m");
 }
