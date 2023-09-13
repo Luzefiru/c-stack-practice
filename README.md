@@ -21,14 +21,16 @@ You'll need to run `make start` in a Bash instance or use [GNUWin](https://gnuwi
 > File directory structure follows the [pitchfork](https://github.com/vector-of-bool/pitchfork) convention used in big C++ and C projects.
 
 ```
-Makefile               # makefile with build scripts
-src/                   # source code files (.c) and header implementations
-├── main.c
+Makefile              # build scripts
+src/
+├── main.c            # driver program
 └── stack/
-    ├── array-stack.c  # array implementation
-    └── list-stack.c   # linked list implementation
+    ├── array/
+    │   └── stack.c   # array implementation
+    └── list/
+        └── stack.c   # linked list implementation
 include/
-└── stack.h            # header file containing the interface of the stack, agnostic of source
+└── stack.h           # included header file with function prototypes & documentation
 ```
 
 # Credits
