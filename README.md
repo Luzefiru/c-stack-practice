@@ -22,7 +22,7 @@ We'll have to change the `IMPLEMENTATION` variable inside `Makefile` which point
 
 ```Makefile
 # the variable to change
-IMPLEMENTATION := array # or list
+IMPLEMENTATION := cursor # can also be list or cursor
 
 # the compiled stack object code
 stack.o:
@@ -40,8 +40,11 @@ src/
 └── stack/
     ├── array/
     │   └── stack.c   # array implementation
+    ├── cursor/
+    │   └── stack.c   # cursor-based list implementation
     ├── list/
-    │   └── stack.c  # linked list implementation
+    │   └── stack.c   # linked list implementation
+    │
     └── java/         # java implementation
 include/
 └── stack.h           # included header file with function prototypes & documentation
