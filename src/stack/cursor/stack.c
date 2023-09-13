@@ -71,7 +71,7 @@ char top(Stack s) {
 }
 
 bool isEmpty(Stack s) {
-  if (s->topIndex == -1) {
+  if (s->length == 0) {
     return true;
   } else {
     return false;
