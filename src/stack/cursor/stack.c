@@ -27,7 +27,7 @@ struct Stack {
 
 typedef struct Stack * Stack;
 
-int push(Stack s, char elem) {
+void push(Stack s, char elem) {
   // allocate a new Node address
   int newNodeIndex = VirtualHeap__alloc(s->VH);
 
@@ -40,24 +40,16 @@ int push(Stack s, char elem) {
     // increment stack's length
     s->length++;
   }
-  
-  return s->length;
 }
 
-char pop(Stack s) {
-  char retval = -1;
-
+void pop(Stack s) {
   if (s->topIndex != -1) {
-    retval = s->VH->elem[s->topIndex].data;
-
     int tmp = s->topIndex;
     s->topIndex = s->VH->elem[s->topIndex].next;
     VirtualHeap__free(s->VH, tmp);
 
     s->length--;
   }
-
-  return retval;
 }
 
 char top(Stack s) {
@@ -108,7 +100,8 @@ void displayStack(Stack s) {
 
   printf("Stack [ ");
   while (s->topIndex != -1) {
-    char tmp = pop(s);
+    char tmp = top(s);
+    pop(s);
     
     if (tmp != -1) {
       push(buffer, tmp);
@@ -119,7 +112,8 @@ void displayStack(Stack s) {
 
   // put back all elements to old stack
   while (buffer->topIndex != -1) {
-    push(s, pop(buffer));
+    push(s, top(buffer));
+    pop(buffer);
   }
 
   // delete buffer stack
