@@ -35,12 +35,6 @@ public class Stack implements IStack {
   public boolean isEmpty(){
     return top == -1;
   }
-    /**
-    * @brief Returns true (1) if the stack is empty, otherwise false (0).
-    * 
-    * @return true 
-    * @return false 
-    */
   
   public boolean isFull(){
     return top == size;

@@ -18,7 +18,7 @@ public class App {
         s.push('F');
         s.push('F');
         
-    
+
         s.displayStack();
         s.pop();
         System.out.println(s.top());
