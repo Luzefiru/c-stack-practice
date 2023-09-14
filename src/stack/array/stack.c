@@ -10,8 +10,8 @@ struct Stack {
 typedef struct Stack * Stack;
 
 // TODO: implement all of these
-int push(Stack s, char elem);
-char pop(Stack s);
+void push(Stack s, char elem);
+void pop(Stack s);
 char top(Stack s);
 bool isEmpty(Stack s);
 bool isFull(Stack s);

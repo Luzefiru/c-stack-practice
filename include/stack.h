@@ -6,21 +6,19 @@
 typedef struct Stack * Stack; // a pointer to a struct Stack
 
 /**
- * @brief adds the specified element to the top of the stack and returns the new length of the stack, returns the MAX length if the stack is full.
+ * @brief Adds the specified element to the top of the stack.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @param ch the element to add to the stack
- * @return int
  */
-int push(Stack s, char elem);
+void push(Stack s, char elem);
 
 /**
- * @brief Removes the element at the top of the stack & returns it, otherwise (-1) if the stack is empty.
+ * @brief Removes the element at the top of the stack.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
- * @return char
  */
-char pop(Stack s);
+void pop(Stack s);
 
 /**
  * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
@@ -63,7 +61,7 @@ Stack init(void);
 void displayStack(Stack s);
 
 /**
- * @brief prints a statement to debug the connection between main.c and stack.h with their private implementations.
+ * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.
  */
 void debugPrint(void);
 
