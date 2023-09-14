@@ -24,6 +24,7 @@ bool isEmpty(Stack s);
 bool isFull(Stack s);
 Stack init(void);
 void displayStack(Stack s);
+int length(Stack s);
 
 /**
  * @brief prints a statement to debug the connection between main.c and stack.h with their private implementations.
@@ -36,7 +37,7 @@ void debugPrint(void){
 
 void push(Stack s, char elem) {
   // checks if there is available space to insert
-  if (!isFull(s)) {
+  if (s->length < MAX) {
     Node newNode = (Node)malloc(sizeof(struct node));
 
     if (newNode != NULL) {
@@ -54,7 +55,7 @@ void push(Stack s, char elem) {
 
 void pop(Stack s) {
   // checks if there is a node to delete
-  if (!isEmpty(s)) {
+  if (s->topPtr != NULL) {
     // initialize temp to topPtr
     Node temp = s->topPtr;
     // set topPtr to topPtr link
@@ -68,7 +69,7 @@ void pop(Stack s) {
 
 char top(Stack s) {
   // if list is empty, return '\0', else return topPtr's data
-  return (isEmpty(s)) ? '\0' : s->topPtr->data;
+  return (s->topPtr == NULL) ? '\0' : s->topPtr->data;
 }
 
 bool isEmpty(Stack s) {
@@ -101,4 +102,8 @@ void displayStack(Stack s) {
     printf("%c ", trav->data);
   }
   printf("]\n");
+}
+
+int length(Stack s) {
+  return s->length;
 }
