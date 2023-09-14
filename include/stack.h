@@ -21,7 +21,7 @@ void push(Stack s, char elem);
 void pop(Stack s);
 
 /**
- * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
+ * @brief Returns the element at the top of the stack, otherwise ('\0') if the stack is empty.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @return char 
@@ -59,6 +59,14 @@ Stack init(void);
  * @param s a pointer to the Stack object (struct Stack *)
  */
 void displayStack(Stack s);
+
+/**
+ * @brief Returns the length of the stack
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return int
+*/
+int length(Stack s);
 
 /**
  * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.

@@ -52,7 +52,7 @@ void pop(Stack s) {
 }
 
 char top(Stack s) {
-  char retval = -1;
+  char retval = '\0';
 
   if (s->topIndex != -1) {
     retval = s->VH->elem[s->topIndex].data;
@@ -62,19 +62,11 @@ char top(Stack s) {
 }
 
 bool isEmpty(Stack s) {
-  if (s->length == 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return (s->length == 0) ? true : false;
 }
 
 bool isFull(Stack s) {
-  if (s->length == MAX) {
-    return true;
-  } else {
-    return false;
-  }
+  return (s->length == MAX) ? true : false;
 }
 
 Stack init(void) {
@@ -118,6 +110,10 @@ void displayStack(Stack s) {
   // delete buffer stack
   free(buffer->VH);
   free(buffer);
+}
+
+int length(Stack s) {
+  return s->length;
 }
 
 /**
