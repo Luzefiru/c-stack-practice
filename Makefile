@@ -15,8 +15,8 @@ start:
 start-java:
 	make clean && make java-main && cd $(JAVA_PATH) && java Main
 
-javadoc-deploy: javadoc
-	git branch gh-pages || git checkout gh-pages && git add . && git commit -m "script: deploy javadoc api page to gh-pages" && git push origin gh-pages
+javadoc-deploy:
+	git branch gh-pages || git checkout gh-pages && make javadoc && git add . && git commit -m "script: deploy javadoc api page to gh-pages" && git push origin gh-pages
 
 javadoc:
 	make clean && make $(JAVA_PATH)/Main.class && javadoc $(JAVA_PATH)/*.java || echo "Done making javadoc files."
