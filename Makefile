@@ -15,8 +15,11 @@ start:
 start-java:
 	make clean && make java-main && cd $(JAVA_PATH) && java Main
 
-javadoc: $(JAVA_PATH)/Main.class
-	mkdir javadoc && cd javadoc/ && javadoc ../$(JAVA_PATH)/*.java
+javadoc-deploy: javadoc
+	git branch gh-pages || git checkout gh-pages && git add . && git commit -m "script: deploy javadoc api page to gh-pages" && git push origin gh-pages
+
+javadoc:
+	make clean && make $(JAVA_PATH)/Main.class && javadoc $(JAVA_PATH)/*.java || echo "Done making javadoc files."
 
 java-main: $(JAVA_PATH)/Main.class
 
@@ -39,4 +42,4 @@ stack.o:
 	gcc -c ./src/stack/$(TYPE)/stack.c
 
 clean:
-	rm -fr main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/ && find $(JAVA_PATH) ! -name '*.java' -delete
+		rm -fr javadoc main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/ && find . -maxdepth 1 ! -name '.git*' ! -name 'include' ! -name 'src' ! -name 'Makefile' -exec rm -rf {} + || echo "Done cleaning."
