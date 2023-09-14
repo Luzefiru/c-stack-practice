@@ -38,7 +38,7 @@ void pop(Stack s)
 
 char top(Stack s)
 {
-  return s->data[s->top];
+  return (!isEmpty(s) ? s->data[s->top] : -1);
 }
 
 bool isEmpty(Stack s)

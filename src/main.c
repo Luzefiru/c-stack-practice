@@ -21,6 +21,10 @@ int main(void)
   Stack s = init();
   puts("");
 
+  puts("top(s)");
+  printf("> the element at the top of the stack = %c (integer value = %d)\n", top(s), top(s));
+  puts("");
+
   puts("isEmpty(s)");
   isEmpty(s) ? puts("> true") : puts("> false");
   puts("");
