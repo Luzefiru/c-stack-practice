@@ -47,7 +47,7 @@ void pop(Stack s)
 */
 char top(Stack s)
 {
-  return (!isEmpty(s) ? s->data[s->top] : -1);
+  return (!isEmpty(s) ? s->data[s->top] : '\0');
 }
 
 /**

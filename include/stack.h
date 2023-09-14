@@ -21,7 +21,7 @@ void push(Stack s, char elem);
 void pop(Stack s);
 
 /**
- * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
+ * @brief Returns the element at the top of the stack, otherwise ('\0') if the stack is empty.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
  * @return char 

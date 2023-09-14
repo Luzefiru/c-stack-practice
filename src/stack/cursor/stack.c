@@ -52,7 +52,7 @@ void pop(Stack s) {
 }
 
 char top(Stack s) {
-  char retval = -1;
+  char retval = '\0';
 
   if (s->topIndex != -1) {
     retval = s->VH->elem[s->topIndex].data;
