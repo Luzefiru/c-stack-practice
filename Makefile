@@ -15,6 +15,9 @@ start:
 start-java:
 	make clean && make java-main && cd $(JAVA_PATH) && java Main
 
+javadoc: $(JAVA_PATH)/Main.class
+	mkdir javadoc && cd javadoc/ && javadoc ../$(JAVA_PATH)/*.java
+
 java-main: $(JAVA_PATH)/Main.class
 
 $(JAVA_PATH)/Main.class: $(JAVA_PATH)/Stack.class
@@ -36,4 +39,4 @@ stack.o:
 	gcc -c ./src/stack/$(TYPE)/stack.c
 
 clean:
-	rm -fr main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/
+	rm -fr main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/ && find $(JAVA_PATH) ! -name '*.java' -delete
