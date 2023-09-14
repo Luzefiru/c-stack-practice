@@ -102,9 +102,14 @@ int main(void)
   push(s, 'X');
   puts("");
 
+  puts("push(s, 'X')");
+  push(s, 'X');
+  puts("");
+
   puts("displayStack(s)");
   printf("> ");
   displayStack(s);
+  printf("> new length of stack = %d\n", length(s));
   puts("");
 
   puts("isFull(s)");
