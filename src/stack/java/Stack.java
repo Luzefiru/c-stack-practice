@@ -1,13 +1,32 @@
+/**
+ * This class represents a stack data structure that can store characters.
+ */
 public class Stack implements IStack {
 
+    /**
+     * The macro definition similar to the C header files.
+     */
     public static final int MAX = 10;
+
+    /**
+     * The maximum capacity of the stack.
+     */
     private int size;
+
+    /**
+     * The internal character array to store stack elements.
+     */
     private char[] data;
-    private int top = -1;
+
+    /**
+     * The index of the top element in the stack, initialized to -1.
+     */
+    private int top;
 
     public Stack() {
         this.data = new char[MAX];
         this.size = MAX - 1;
+        this.top = -1;
     }
 
     public int length() {

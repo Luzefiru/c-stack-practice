@@ -1,51 +1,48 @@
 public interface IStack {
 
     /**
-     * @brief Adds the specified element to the top of the stack.
+     * Pushes a character element onto the top of the stack if there is space.
      *
-     * @param ch the element to add to the stack
+     * @param elem The character element to push onto the stack.
      */
     public void push(char elem);
 
     /**
-     * @brief Removes the element at the top of the stack.
-     *
+     * Removes the element at the top of the stack if the stack is not empty.
      */
     public void pop();
 
     /**
-     * @brief Returns the element at the top of the stack, otherwise (-1) if the
-     * stack is empty.
+     * Returns the element at the top of the stack, otherwise '\0' if the stack
+     * is empty.
      *
      * @return char
      */
     public char top();
 
     /**
-     * @brief Returns true (1) if the stack is empty, otherwise false (0).
+     * Checks if the stack is empty.
      *
-     * @return true
-     * @return false
+     * @return true if the stack is empty, false otherwise.
      */
     public boolean isEmpty();
 
     /**
-     * @brief Returns true (1) if the stack is full, otherwise false (0).
+     * Checks if the stack is full.
      *
-     * @return true
-     * @return false
+     * @return true if the stack is full, false otherwise.
      */
     public boolean isFull();
 
     /**
-     * @brief Pretty prints the stack's elements, starting from the top-most
-     * element to the bottom.
+     * Pretty prints the stack's elements, starting from the top-most element to
+     * the bottom.
      *
      */
     public void displayStack();
 
     /**
-     * @brief Returns the length of the stack.
+     * Returns the length of the stack.
      *
      * @return int
      */
