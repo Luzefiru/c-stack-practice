@@ -12,7 +12,6 @@ struct Stack
 
 typedef struct Stack *Stack;
 
-// TODO: implement all of these
 void push(Stack s, char elem);
 void pop(Stack s);
 char top(Stack s);
@@ -23,12 +22,18 @@ void displayStack(Stack s);
 
 void push(Stack s, char elem)
 {
-  s->data[++s->top] = elem;
+  if (s->top < MAX - 1)
+  {
+    s->data[++s->top] = elem;
+  }
 }
 
 void pop(Stack s)
 {
-  s->data[s->top--];
+  if (s->top >= 0)
+  {
+    s->top--;
+  }
 }
 
 char top(Stack s)
@@ -38,34 +43,34 @@ char top(Stack s)
 
 bool isEmpty(Stack s)
 {
-  return s->top == 1;
+  return s->top == -1;
 }
 
 bool isFull(Stack s)
 {
-  return s->top > MAX;
+  return s->top >= MAX - 1;
 }
 
 Stack init(void)
 {
   Stack s = (Stack)malloc(sizeof(struct Stack));
-  s->top = 1;
+  s->top = -1;
   return s;
 }
 
 void displayStack(Stack s)
 {
   int x;
-  for (x = s->top; x > 1; x--)
+  for (x = s->top; x >= 0; x--)
   {
     printf("%c ", s->data[x]);
   }
+  printf("\n");
 }
 
-int length(Stack s) {
-  int x;
-  for (x = 0; x < s->top; x++) {}
-  return x - 1;
+int length(Stack s)
+{
+  return s->top + 1;
 }
 
 /**
