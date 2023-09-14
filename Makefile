@@ -1,11 +1,11 @@
 # change implementations here by editing the IMPLEMENTATION variable
 # available options: array | list | cursor
-IMPLEMENTATION := cursor
+IMPLEMENTATION := list
 JAVA_PATH := ./src/stack/java
 JAVAC_FLAGS := -cp $(JAVA_PATH)/
  
-start: main
-	./main.exe
+start:
+	make clean && make main && ./main.exe
 
 start-java: $(JAVA_PATH)/Main.class
 	cd $(JAVA_PATH) && java Main
