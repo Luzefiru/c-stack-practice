@@ -8,26 +8,37 @@ Different implementations of a stack data structure in C, inspired by JavaScript
 git clone git@github.com:Luzefiru/c-stack-practice.git
 cd c-stack-practice
 
-make start       # builds & runs the C implementation
+make             # builds & runs the array C implementation
+make TYPE=list   # builds the list implementation
+make TYPE=cursor # builds the cursor implementation
+
 make start-java  # builds & runs the Java implementation
 make clean       # deletes .o & .class build artifacts
 ```
 
 You'll need to run `make start` in a Bash instance or use [GNUWin](https://gnuwin32.sourceforge.net/install.html) to add the `make` command to cmd.
 
-- add makefile scripts and descriptions
+### Changing the Implementation
 
-## Changing the Implementation
-
-We'll have to change the `IMPLEMENTATION` variable inside `Makefile` which points to the directory inside `/src/stack/$(IMPLEMENTATION)/stack.c`.
+The `Makefile` `TYPE` variable is optionally assigned to `array` if we do not explicitly pass it as a command-line argument.
 
 ```Makefile
-# the variable to change
-IMPLEMENTATION := cursor # can also be list or array
+# "assign TYPE to the environment variable TYPE, otherwise default to array
+TYPE ?= array # can also be list or cursor
 
 # the compiled stack object code
 stack.o:
-	gcc -c ./src/stack/$(IMPLEMENTATION)/stack.c
+	gcc -c ./src/stack/$(TYPE)/stack.c
+```
+
+We can override this default behavior by [setting an environment variable](https://unix.stackexchange.com/questions/56444/how-do-i-set-an-environment-variable-on-the-command-line-and-have-it-appear-in-c) or passing the assignment as an argument to `make` explicitly.
+
+```bash
+make             # defaults to array implementation
+make TYPE=list   # builds the list implementation
+make TYPE=cursor # builds the cursor implementation
+
+TYPE=list make   # same behavior
 ```
 
 # File Structure

@@ -1,6 +1,11 @@
-# change implementations here by editing the IMPLEMENTATION variable
-# available options: array | list | cursor
-IMPLEMENTATION := list
+# USAGE:
+#   make start
+#   make start-java
+#   make start TYPE=[array | list | cursor]
+#   TYPE=[array | list | cursor] make start
+
+# available options: array | list | cursor, defaults to array
+TYPE ?= array
 JAVA_PATH := ./src/stack/java
 JAVAC_FLAGS := -cp $(JAVA_PATH)/
  
@@ -28,7 +33,7 @@ main.o:
 	gcc -c ./src/main.c
 
 stack.o:
-	gcc -c ./src/stack/$(IMPLEMENTATION)/stack.c
+	gcc -c ./src/stack/$(TYPE)/stack.c
 
 clean:
 	rm -fr main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/
