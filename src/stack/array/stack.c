@@ -20,6 +20,9 @@ bool isFull(Stack s);
 Stack init(void);
 void displayStack(Stack s);
 
+/**
+ * @brief Adds the specified element to the top of the stack.
+*/
 void push(Stack s, char elem)
 {
   if (s->top < MAX - 1)
@@ -28,6 +31,9 @@ void push(Stack s, char elem)
   }
 }
 
+/**
+ * @brief Removes the element at the top of the stack.
+*/
 void pop(Stack s)
 {
   if (s->top >= 0)
@@ -36,21 +42,33 @@ void pop(Stack s)
   }
 }
 
+/**
+ * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
+*/
 char top(Stack s)
 {
   return (!isEmpty(s) ? s->data[s->top] : -1);
 }
 
+/**
+ * @brief Returns true (1) if the stack is empty, otherwise false (0).
+*/
 bool isEmpty(Stack s)
 {
   return s->top == -1;
 }
 
+/**
+ * @brief Returns true (1) if the stack is full, otherwise false (0).
+*/
 bool isFull(Stack s)
 {
   return s->top >= MAX - 1;
 }
 
+/**
+ * @brief Returns a new instance of a Stack.
+*/
 Stack init(void)
 {
   Stack s = (Stack)malloc(sizeof(struct Stack));
@@ -58,6 +76,9 @@ Stack init(void)
   return s;
 }
 
+/**
+ * @brief Pretty prints the stack's elements, starting from the top-most element to the bottom.
+*/
 void displayStack(Stack s)
 {
   int x;
@@ -68,13 +89,16 @@ void displayStack(Stack s)
   printf("\n");
 }
 
+/**
+ * @brief Returns the length of the stack
+*/
 int length(Stack s)
 {
   return s->top + 1;
 }
 
 /**
- * @brief prints a statement to debug the connection between main.c and stack.h with their private implementations.
+ * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.
  */
 void debugPrint(void)
 {
