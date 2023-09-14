@@ -64,7 +64,6 @@ int main(void)
   printf("\e[0;34m");
   puts("displayStack(s)");
   printf("\e[0m");
-  printf("> ");
   displayStack(s);
   puts("");
 
@@ -106,7 +105,6 @@ int main(void)
   printf("\e[0;34m");
   puts("displayStack(s)");
   printf("\e[0m");
-  printf("> ");
   displayStack(s);
   puts("");
 
@@ -150,7 +148,6 @@ int main(void)
   printf("\e[0;34m");
   puts("displayStack(s)");
   printf("\e[0m");
-  printf("> ");
   displayStack(s);
   printf("> new length of stack = %d\n", length(s));
   puts("");
@@ -174,7 +171,6 @@ int main(void)
   printf("\e[0;34m");
   puts("displayStack(s)");
   printf("\e[0m");
-  printf("> ");
   displayStack(s);
   puts("");
 

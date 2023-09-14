@@ -40,9 +40,15 @@ public class Stack implements IStack {
     }
 
     public void displayStack() {
+        System.out.println("");
         for (int x = top; x >= 0; x--) {
-            System.out.println("Index " + (x + 1) + ": " + data[x]);
+            System.out.println(String.format("|%3c%3c", data[x], '|'));
         }
+
+        if (this.top == -1) {
+            System.out.println("|     |");
+        }
+        System.out.println("-------");
     }
 
 }

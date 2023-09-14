@@ -7,8 +7,10 @@ JAVAC_FLAGS := -cp $(JAVA_PATH)/
 start:
 	make clean && make main && ./main.exe
 
-start-java: $(JAVA_PATH)/Main.class
-	cd $(JAVA_PATH) && java Main
+start-java:
+	make clean && make java-main && cd $(JAVA_PATH) && java Main
+
+java-main: $(JAVA_PATH)/Main.class
 
 $(JAVA_PATH)/Main.class: $(JAVA_PATH)/Stack.class
 	javac $(JAVAC_FLAGS) $(JAVA_PATH)/Main.java

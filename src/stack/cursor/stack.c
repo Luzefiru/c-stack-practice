@@ -87,19 +87,25 @@ Stack init(void) {
 }
 
 void displayStack(Stack s) {
+  int oldLength = s->length; // for pretty printing
   Stack buffer = init();
 
-  printf("Stack [ ");
+  puts("");
   while (s->topIndex != -1) {
     char tmp = top(s);
     pop(s);
     
     if (tmp != -1) {
       push(buffer, tmp);
-      printf("%c ", tmp);
+      printf("|%3c%3c\n", tmp, '|');
     }
   }
-  printf("]\n");
+  
+  
+  if (oldLength == 0) {
+    puts("|     |");
+  }
+  puts("-------");
 
   // put back all elements to old stack
   while (buffer->topIndex != -1) {

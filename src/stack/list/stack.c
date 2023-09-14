@@ -97,11 +97,15 @@ Stack init(void) {
 void displayStack(Stack s) {
   Node trav;
 
-  printf("Stack [ ");
+  puts("");
   for (trav = s->topPtr; trav != NULL; trav = trav->next) {
-    printf("%c ", trav->data);
+    printf("|%3c%3c\n", trav->data, '|');
   }
-  printf("]\n");
+  
+  if (s->length == 0) {
+    puts("|     |");
+  }
+  puts("-------");
 }
 
 int length(Stack s) {

@@ -81,12 +81,18 @@ Stack init(void)
 */
 void displayStack(Stack s)
 {
+  puts("");
+
   int x;
   for (x = s->top; x >= 0; x--)
   {
-    printf("%c ", s->data[x]);
+    printf("|%3c%3c\n", s->data[x], '|');
   }
-  printf("\n");
+
+  if (s->top + 1 == 0) {
+    puts("|     |");
+  }
+  puts("-------");
 }
 
 /**
