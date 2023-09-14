@@ -8,8 +8,9 @@ Different implementations of a stack data structure in C, inspired by JavaScript
 git clone git@github.com:Luzefiru/c-stack-practice.git
 cd c-stack-practice
 
-make start # builds & runs the program
-make clean # deletes build artifacts
+make start       # builds & runs the C implementation
+make start-java  # builds & runs the Java implementation
+make clean       # deletes .o & .class build artifacts
 ```
 
 You'll need to run `make start` in a Bash instance or use [GNUWin](https://gnuwin32.sourceforge.net/install.html) to add the `make` command to cmd.
@@ -22,7 +23,7 @@ We'll have to change the `IMPLEMENTATION` variable inside `Makefile` which point
 
 ```Makefile
 # the variable to change
-IMPLEMENTATION := cursor # can also be list or cursor
+IMPLEMENTATION := cursor # can also be list or array
 
 # the compiled stack object code
 stack.o:
@@ -34,20 +35,23 @@ stack.o:
 > File directory structure follows the [pitchfork](https://github.com/vector-of-bool/pitchfork) convention used in big C++ and C projects.
 
 ```
-Makefile              # build scripts
+Makefile                  # build scripts
 src/
-├── main.c            # driver program
+├── main.c                # driver program
 └── stack/
     ├── array/
-    │   └── stack.c   # array implementation
+    │   └── stack.c       # array implementation
     ├── cursor/
-    │   └── stack.c   # cursor-based list implementation
+    │   └── stack.c       # cursor-based list implementation
     ├── list/
-    │   └── stack.c   # linked list implementation
+    │   └── stack.c       # linked list implementation
     │
-    └── java/         # java implementation
+    └── java/             # Java implementation
+        ├── Main.class    # Java driver program
+        ├── Stack.class   # Stack class & method definitions
+        └── IStack.class  # IStack interface imitating a header file
 include/
-└── stack.h           # included header file with function prototypes & documentation
+└── stack.h               # included header file with function prototypes & documentation
 ```
 
 # Credits
