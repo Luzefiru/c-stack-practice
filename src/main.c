@@ -1,7 +1,18 @@
 #include "../include/stack.h"
 #include <stdio.h>
 
-int main(void) {
+#define MAX 10
+
+struct Stack
+{
+  char data[MAX];
+  int top;
+};
+
+typedef struct Stack * Stack;
+
+int main(void)
+{
   puts("\nTesting a function defined in /src/stack/$(IMPLEMENTATION)/stack.c, included via stack.h");
   debugPrint();
 
@@ -9,7 +20,7 @@ int main(void) {
   puts("Stack s = init()");
   Stack s = init();
   puts("");
-  
+
   puts("isEmpty(s)");
   isEmpty(s) ? puts("> true") : puts("> false");
   puts("");
@@ -33,7 +44,8 @@ int main(void) {
   puts("");
 
   puts("displayStack(s)");
-  printf("> "); displayStack(s);
+  printf("> ");
+  displayStack(s);
   puts("");
 
   puts("top(s)");
@@ -53,12 +65,17 @@ int main(void) {
   puts("");
 
   puts("pushing: R I F E Z");
-  push(s, 'R'); push(s, 'I'); push(s, 'F'); push(s, 'E'); push(s, 'Z');
+  push(s, 'R');
+  push(s, 'I');
+  push(s, 'F');
+  push(s, 'E');
+  push(s, 'Z');
   printf("> new length of stack = %d\n", length(s));
   puts("");
 
   puts("displayStack(s)");
-  printf("> "); displayStack(s);
+  printf("> ");
+  displayStack(s);
   puts("");
 
   puts("isFull(s)");
@@ -81,8 +98,13 @@ int main(void) {
   push(s, 'X');
   puts("");
 
+  puts("push(s, 'X')");
+  push(s, 'X');
+  puts("");
+
   puts("displayStack(s)");
-  printf("> "); displayStack(s);
+  printf("> ");
+  displayStack(s);
   puts("");
 
   puts("isFull(s)");
@@ -90,21 +112,23 @@ int main(void) {
   puts("");
 
   puts("Popping all elements...\n");
-  while (!isEmpty(s)) {
+  while (!isEmpty(s))
+  {
     puts("pop(s)");
     pop(s);
     puts("");
   }
-  
+
   puts("displayStack(s)");
-  printf("> "); displayStack(s);
+  printf("> ");
+  displayStack(s);
   puts("");
 
   puts("isEmpty(s)");
   isEmpty(s) ? puts("> true") : puts("> false");
   printf("> new length of stack = %d\n", length(s));
   puts("");
-  
-  puts("\nPress Any Key to Continue...");  
-  getchar();    
+
+  puts("\nPress Any Key to Continue...");
+  getchar();
 }
