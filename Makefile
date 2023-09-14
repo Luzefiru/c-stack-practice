@@ -1,6 +1,6 @@
 # change implementations here by editing the IMPLEMENTATION variable
 # available options: array | list | cursor
-IMPLEMENTATION := list
+IMPLEMENTATION := array
 
 start:
 	make clean && make all && ./main.exe
