@@ -6,7 +6,7 @@
 
 # available options: array | list | cursor, defaults to array
 TYPE ?= array
-JAVA_PATH := ./src/stack/java
+JAVA_PATH := ./src/java
 JAVAC_FLAGS := -cp $(JAVA_PATH)/
  
 start:

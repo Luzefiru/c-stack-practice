@@ -1,4 +1,3 @@
-#include "../../../include/stack.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -26,6 +25,12 @@ struct Stack {
 
 typedef struct Stack * Stack;
 
+/**
+ * @brief Adds the specified element to the top of the stack.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @param ch the element to add to the stack
+ */
 void push(Stack s, char elem) {
   // allocate a new Node address
   int newNodeIndex = VirtualHeap__alloc(s->VH);
@@ -41,6 +46,11 @@ void push(Stack s, char elem) {
   }
 }
 
+/**
+ * @brief Removes the element at the top of the stack.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ */
 void pop(Stack s) {
   if (s->topIndex != -1) {
     int tmp = s->topIndex;
@@ -51,6 +61,12 @@ void pop(Stack s) {
   }
 }
 
+/**
+ * @brief Returns the element at the top of the stack, otherwise ('\0') if the stack is empty.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return char 
+ */
 char top(Stack s) {
   char retval = '\0';
 
@@ -61,17 +77,36 @@ char top(Stack s) {
   return retval;
 }
 
+/**
+ * @brief Returns true (1) if the stack is empty, otherwise false (0).
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return true 
+ * @return false 
+ */
 bool isEmpty(Stack s) {
   return (s->length == 0) ? true : false;
 }
 
+/**
+ * @brief Returns true (1) if the stack is full, otherwise false (0).
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return true 
+ * @return false 
+ */
 bool isFull(Stack s) {
   return (s->length == MAX) ? true : false;
 }
 
+/**
+ * @brief Returns a new instance of a Stack.
+ * 
+ * @return Stack 
+ */
 Stack init(void) {
-  Stack newStack = malloc(sizeof(Stack));
-  newStack->VH = malloc(sizeof(VirtualHeap));
+  Stack newStack = (Stack) malloc(sizeof(Stack));
+  newStack->VH = (VirtualHeap *) malloc(sizeof(VirtualHeap));
 
   // initialize VirtualHeap *
   int x;
@@ -86,6 +121,11 @@ Stack init(void) {
   newStack->length = 0;
 }
 
+/**
+ * @brief Pretty prints the stack's elements, starting from the top-most element to the bottom.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ */
 void displayStack(Stack s) {
   int oldLength = s->length; // for pretty printing
   Stack buffer = init();
@@ -118,16 +158,22 @@ void displayStack(Stack s) {
   free(buffer);
 }
 
+/**
+ * @brief Returns the length of the stack
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return int
+*/
 int length(Stack s) {
   return s->length;
 }
 
 /**
- * @brief prints a statement to debug the connection between main.c and stack.h with their private implementations.
+ * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.
  */
 void debugPrint(void){
   printf("\e[0;32m");
-  puts("I'm in /src/stack/cursor/stack.c!\n");
+  puts("I'm in /src/stack/cursor/stack.h!\n");
   printf("\e[0m");
 }
 

@@ -1,4 +1,4 @@
-#include "../include/stack.h"
+#include "array/stack.h"
 #include <stdio.h>
 
 #define MAX 10
