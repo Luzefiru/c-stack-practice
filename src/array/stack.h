@@ -12,6 +12,29 @@ struct Stack
 typedef struct Stack *Stack;
 
 /**
+ * @brief Returns the length of the stack
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return int
+*/
+int length(Stack s)
+{
+  return s->top + 1;
+}
+
+/**
+ * @brief Returns true (1) if the stack is empty, otherwise false (0).
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @return true 
+ * @return false 
+ */
+bool isEmpty(Stack s)
+{
+  return s->top == -1;
+}
+
+/**
  * @brief Adds the specified element to the top of the stack.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
@@ -47,18 +70,6 @@ void pop(Stack s)
 char top(Stack s)
 {
   return (!isEmpty(s) ? s->data[s->top] : '\0');
-}
-
-/**
- * @brief Returns true (1) if the stack is empty, otherwise false (0).
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return true 
- * @return false 
- */
-bool isEmpty(Stack s)
-{
-  return s->top == -1;
 }
 
 /**
@@ -104,17 +115,6 @@ void displayStack(Stack s)
     puts("|     |");
   }
   puts("-------");
-}
-
-/**
- * @brief Returns the length of the stack
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return int
-*/
-int length(Stack s)
-{
-  return s->top + 1;
 }
 
 /**

@@ -1,16 +1,14 @@
-# USAGE:
-#   make start
-#   make start-java
-#   make start TYPE=[array | list | cursor]
-#   TYPE=[array | list | cursor] make start
-
-# available options: array | list | cursor, defaults to array
-TYPE ?= array
 JAVA_PATH := ./src/java
 JAVAC_FLAGS := -cp $(JAVA_PATH)/
  
 start:
 	make clean && make main && ./main.exe
+
+main: main.o
+	gcc -o main main.o
+
+main.o:
+	gcc -c ./src/main.c
 
 start-java:
 	make clean && make java-main && cd $(JAVA_PATH) && java Main
@@ -31,15 +29,6 @@ $(JAVA_PATH)/Stack.class: $(JAVA_PATH)/IStack.class
 
 $(JAVA_PATH)/IStack.class:
 	javac $(JAVAC_FLAGS) $(JAVA_PATH)/IStack.java
-
-main: main.o stack.o
-	gcc -o main main.o stack.o
-
-main.o:
-	gcc -c ./src/main.c
-
-stack.o:
-	gcc -c ./src/stack/$(TYPE)/stack.c
 
 clean:
 		rm -fr javadoc main.* stack.* $(JAVA_PATH)/*.class $(JAVA_PATH)/build/ && find . -maxdepth 1 ! -name '.git*' ! -name 'include' ! -name 'src' ! -name 'Makefile' -exec rm -rf {} + || echo "Done cleaning."

@@ -1,13 +1,9 @@
-#include "array/stack.h"
+// change directory for different implementation: array | cursor | list 
+// then run: make
+#include "./list/stack.h" 
 #include <stdio.h>
 
 #define MAX 10
-
-struct Stack
-{
-  char data[MAX];
-  int top;
-};
 
 typedef struct Stack * Stack;
 
