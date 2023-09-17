@@ -45,9 +45,9 @@ src/
 ├── array/
 │   └── stack.h       # array implementation
 ├── cursor/
-│   └── stack.c       # cursor-based list implementation
+│   └── stack.h       # cursor-based list implementation
 │── list/
-│   └── stack.c       # linked list implementation
+│   └── stack.h       # linked list implementation
 │
 └── java/             # Java implementation
     ├── Main.class    # Java driver program
