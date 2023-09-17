@@ -3,12 +3,6 @@
 
 #define MAX 10
 
-struct Stack
-{
-  char data[MAX];
-  int top;
-};
-
 typedef struct Stack * Stack;
 
 int main(void)
