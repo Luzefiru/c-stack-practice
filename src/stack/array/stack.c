@@ -100,7 +100,9 @@ void displayStack(Stack s)
     pop(temp);
   }
 
-  if (s->top + 1 == 0)
+  free(temp);
+
+  if (isEmpty(s))
   {
     puts("|     |");
   }
