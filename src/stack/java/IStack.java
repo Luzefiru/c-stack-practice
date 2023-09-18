@@ -49,17 +49,17 @@ public interface IStack {
     public int length();
 
     /**
-    * @brief Clears the stack.
+    * Clears the stack.
     * 
     * @param s a pointer to the Stack object (struct Stack *)
     */
     public void makeNull();
 
     /**
-    * @brief Inserts the specified element to the bottom of the stack.
+    * Inserts the specified element to the bottom of the stack.
     * 
     * @param s a pointer to the Stack object (struct Stack *)
     * @param elem the element to add to the stack
     */
-    public void insertBottom( char elem);
+    public void insertBottom(char elem);
 }
