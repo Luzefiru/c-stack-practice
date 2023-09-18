@@ -7,13 +7,25 @@ Implementations of a stack data structure in C & Java.
 # Usage
 
 ```bash
+# THIS IS FOR THE FLEXIBLE IMPLEMENTATION, SEE THE SIMPLER IMPLEMENTATION BELOW
 git clone git@github.com:Luzefiru/c-stack-practice.git
 cd c-stack-practice
 
 make             # builds & runs main.c based on the #include header
 
-make start-java  # builds & runs the Java implementation
-make clean       # deletes .o & .class build artifacts
+make start-java     # builds & runs the Java implementation
+make clean          # deletes .o & .class build artifacts
+```
+
+```bash
+# THIS IS THE SIMPLER IMPLEMENTATION WHERE EVERYTHING IS INCLUDED IN .H FILES
+git clone git@github.com:Luzefiru/c-stack-practice.git
+cd c-stack-practice
+git checkout header
+
+make
+make start-java
+make clean
 ```
 
 You'll need to run `make start` in a Bash instance or use [GNUWin](https://gnuwin32.sourceforge.net/install.html) to add the `make` command to cmd.

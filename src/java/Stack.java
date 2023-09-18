@@ -59,15 +59,37 @@ public class Stack implements IStack {
     }
 
     public void displayStack() {
-        System.out.println("");
-        for (int x = top; x >= 0; x--) {
-            System.out.println(String.format("|%3c%3c", data[x], '|'));
-        }
+        int temp = top;
 
-        if (this.top == -1) {
+        if (this.isEmpty()) {
             System.out.println("|     |");
         }
+
+        while (!this.isEmpty()) {
+            System.out.println(String.format("|%3c%3c", data[top], '|'));
+            this.pop();
+        }
+
         System.out.println("-------");
+
+        top = temp;
+    }
+
+    public void makeNull(){
+        top = -1;
+    }
+
+    
+    public void insertBottom(char elem){
+        if (top < size) {
+            top++;
+            for (int i = top; i > 0; i--) {
+                data[i] = data[i - 1]; 
+                System.out.println(top);
+            }
+            
+            data[0] = elem;
+        }
     }
 
 }
