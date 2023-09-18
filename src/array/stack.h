@@ -11,34 +11,16 @@ struct Stack
 
 typedef struct Stack *Stack;
 
-/**
- * @brief Returns the length of the stack
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return int
-*/
-int length(Stack s)
-{
-  return s->top + 1;
-}
-
-/**
- * @brief Returns true (1) if the stack is empty, otherwise false (0).
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return true 
- * @return false 
- */
-bool isEmpty(Stack s)
-{
-  return s->top == -1;
-}
+void push(Stack s, char elem);
+void pop(Stack s);
+char top(Stack s);
+bool isEmpty(Stack s);
+bool isFull(Stack s);
+Stack init(void);
+void displayStack(Stack s);
 
 /**
  * @brief Adds the specified element to the top of the stack.
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @param ch the element to add to the stack
  */
 void push(Stack s, char elem)
 {
@@ -49,9 +31,33 @@ void push(Stack s, char elem)
 }
 
 /**
+ * @brief Inserts the specified element to the bottom of the stack.
+ */
+void insertBottom(Stack s, char elem)
+{
+  if (!isFull(s))
+  {
+    Stack temp = init();
+
+    while (!isEmpty(s))
+    {
+      push(temp, top(s));
+      pop(s);
+    }
+
+    push(s, elem);
+
+    while (!isEmpty(temp))
+    {
+      push(s, top(temp));
+      pop(temp);
+    }
+
+    free(temp);
+  }
+}
+/**
  * @brief Removes the element at the top of the stack.
- * 
- * @param s a pointer to the Stack object (struct Stack *)
  */
 void pop(Stack s)
 {
@@ -62,10 +68,7 @@ void pop(Stack s)
 }
 
 /**
- * @brief Returns the element at the top of the stack, otherwise ('\0') if the stack is empty.
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return char 
+ * @brief Returns the element at the top of the stack, otherwise (-1) if the stack is empty.
  */
 char top(Stack s)
 {
@@ -73,11 +76,15 @@ char top(Stack s)
 }
 
 /**
+ * @brief Returns true (1) if the stack is empty, otherwise false (0).
+ */
+bool isEmpty(Stack s)
+{
+  return s->top == -1;
+}
+
+/**
  * @brief Returns true (1) if the stack is full, otherwise false (0).
- * 
- * @param s a pointer to the Stack object (struct Stack *)
- * @return true 
- * @return false 
  */
 bool isFull(Stack s)
 {
@@ -86,8 +93,6 @@ bool isFull(Stack s)
 
 /**
  * @brief Returns a new instance of a Stack.
- * 
- * @return Stack 
  */
 Stack init(void)
 {
@@ -98,23 +103,51 @@ Stack init(void)
 
 /**
  * @brief Pretty prints the stack's elements, starting from the top-most element to the bottom.
- * 
- * @param s a pointer to the Stack object (struct Stack *)
  */
 void displayStack(Stack s)
 {
   puts("");
 
-  int x;
-  for (x = s->top; x >= 0; x--)
+  Stack temp = init();
+
+  while (!isEmpty(s))
   {
-    printf("|%3c%3c\n", s->data[x], '|');
+    char element = top(s);
+    printf("|%3c%3c\n", element, '|');
+    push(temp, element);
+    pop(s);
   }
 
-  if (s->top + 1 == 0) {
+  while (!isEmpty(temp))
+  {
+    char element = top(temp);
+    push(s, element);
+    pop(temp);
+  }
+
+  free(temp);
+
+  if (isEmpty(s))
+  {
     puts("|     |");
   }
   puts("-------");
+}
+
+/**
+ * @brief Returns the length of the stack
+ */
+int length(Stack s)
+{
+  return s->top + 1;
+}
+
+/**
+ * @brief Clears the stack.
+ */
+void makeNull(Stack s)
+{
+  s->top = -1;
 }
 
 /**
@@ -123,6 +156,6 @@ void displayStack(Stack s)
 void debugPrint(void)
 {
   printf("\e[0;34m");
-  puts("I'm in /src/stack/array/stack.h!\n");
+  puts("I'm in /src/stack/array/stack.c!\n");
   printf("\e[0m");
 }

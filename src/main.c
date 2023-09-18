@@ -1,11 +1,9 @@
 // change directory for different implementation: array | cursor | list 
 // then run: make
-#include "./list/stack.h" 
+#include "./array/stack.h" 
 #include <stdio.h>
 
 #define MAX 10
-
-typedef struct Stack * Stack;
 
 int main(void)
 {
@@ -125,20 +123,10 @@ int main(void)
   printf("\e[0m");
   push(s, 'X');
 
-  printf("\e[0;36m");
-  puts("push(s, 'X')");
+  printf("\e[0;32m");
+  puts("insertBottom(s, '@')");
   printf("\e[0m");
-  push(s, 'X');
-
-  printf("\e[0;36m");
-  puts("push(s, 'X')");
-  printf("\e[0m");
-  push(s, 'X');
-
-  printf("\e[0;36m");
-  puts("push(s, 'X')");
-  printf("\e[0m");
-  push(s, 'X');
+  insertBottom(s, '@');
   puts("");
 
   printf("\e[0;34m");
@@ -154,14 +142,10 @@ int main(void)
   isFull(s) ? puts("> true") : puts("> false");
   puts("");
 
-  puts("Popping all elements...\n");
-  while (!isEmpty(s))
-  {
-    printf("\e[0;35m");
-    puts("pop(s)");
-    printf("\e[0m");
-    pop(s);
-  }
+  printf("\e[0;35m");
+  puts("makeNull(s)");
+  makeNull(s);
+  printf("\e[0m");
   puts("");
 
   printf("\e[0;34m");
