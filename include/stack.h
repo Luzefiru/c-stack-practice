@@ -14,6 +14,14 @@ typedef struct Stack * Stack; // a pointer to a struct Stack
 void push(Stack s, char elem);
 
 /**
+ * @brief Inserts the specified element to the bottom of the stack.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ * @param elem the element to add to the stack
+ */
+void insertBottom(Stack s, char elem);
+
+/**
  * @brief Removes the element at the top of the stack.
  * 
  * @param s a pointer to the Stack object (struct Stack *)
@@ -67,6 +75,13 @@ void displayStack(Stack s);
  * @return int
 */
 int length(Stack s);
+
+/**
+ * @brief Clears the stack.
+ * 
+ * @param s a pointer to the Stack object (struct Stack *)
+ */
+void makeNull(Stack s);
 
 /**
  * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.
