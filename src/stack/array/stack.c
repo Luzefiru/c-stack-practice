@@ -32,6 +32,32 @@ void push(Stack s, char elem)
 }
 
 /**
+ * @brief Inserts the specified element to the bottom of the stack.
+ */
+void insertBottom(Stack s, char elem)
+{
+  if (!isFull(s))
+  {
+    Stack temp = init();
+
+    while (!isEmpty(s))
+    {
+      push(temp, top(s));
+      pop(s);
+    }
+
+    push(s, elem);
+
+    while (!isEmpty(temp))
+    {
+      push(s, top(temp));
+      pop(temp);
+    }
+
+    free(temp);
+  }
+}
+/**
  * @brief Removes the element at the top of the stack.
  */
 void pop(Stack s)
