@@ -118,6 +118,36 @@ void displayStack(Stack s) {
   free(buffer);
 }
 
+void makeNull(Stack s) {
+  while (!isEmpty(s)) {
+    pop(s);
+  }
+}
+
+void insertBottom(Stack s, char elem) {
+  if (length(s) + 1 <= MAX) {
+    int oldLength = s->length; // for pretty printing
+    Stack buffer = init();
+
+    while (!isEmpty(s)) {
+      push(buffer, top(s));
+      pop(s);
+    }
+
+    push(buffer, elem);
+
+    // put back all elements to old stack
+    while (!isEmpty(buffer)) {
+      push(s, top(buffer));
+      pop(buffer);
+    }
+
+    // delete buffer stack
+    free(buffer->VH);
+    free(buffer);
+  }
+}
+
 int length(Stack s) {
   return s->length;
 }

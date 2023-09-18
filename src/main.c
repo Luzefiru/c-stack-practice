@@ -123,16 +123,6 @@ int main(void)
   printf("\e[0m");
   push(s, 'X');
 
-  printf("\e[0;36m");
-  puts("push(s, 'X')");
-  printf("\e[0m");
-  push(s, 'X');
-
-  printf("\e[0;36m");
-  puts("push(s, 'X')");
-  printf("\e[0m");
-  push(s, 'X');
-
   printf("\e[0;32m");
   puts("insertBottom(s, '@')");
   printf("\e[0m");
