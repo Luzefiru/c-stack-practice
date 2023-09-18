@@ -144,6 +144,14 @@ int length(Stack s)
 }
 
 /**
+ * @brief Clears the stack.
+ */
+void makeNull(Stack s)
+{
+  s->top = -1;
+}
+
+/**
  * @brief Prints a statement to debug the connection between main.c and stack.h with their private implementations.
  */
 void debugPrint(void)
