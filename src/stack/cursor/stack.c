@@ -126,7 +126,6 @@ void makeNull(Stack s) {
 
 void insertBottom(Stack s, char elem) {
   if (length(s) + 1 <= MAX) {
-    int oldLength = s->length; // for pretty printing
     Stack buffer = init();
 
     while (!isEmpty(s)) {
